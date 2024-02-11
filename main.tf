@@ -15,7 +15,7 @@ data "aws_availability_zones" "available" {
 }
 
 locals {
-  cluster_name = "education-eks-${random_string.suffix.result}"
+  cluster_name = "cherlie-eks-${random_string.suffix.result}"
 }
 
 resource "random_string" "suffix" {
@@ -73,8 +73,8 @@ module "eks" {
       instance_types = ["t3.small"]
 
       min_size     = 1
-      max_size     = 3
-      desired_size = 2
+      max_size     = 1
+      desired_size = 1
     }
 
     two = {
@@ -83,7 +83,7 @@ module "eks" {
       instance_types = ["t3.small"]
 
       min_size     = 1
-      max_size     = 2
+      max_size     = 1
       desired_size = 1
     }
   }
